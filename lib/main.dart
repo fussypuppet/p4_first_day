@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -26,11 +24,48 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  @override
+  void _plan() {
+    Navigator.of(context)
+        .push(MaterialPageRoute<void>(builder: (BuildContext context) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text('Plan!'),
+        ),
+      );
+    }));
+  }
+
+  void _play() {
+    Navigator.of(context)
+        .push(MaterialPageRoute<void>(builder: (BuildContext context) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text('Play!'),
+        ),
+      );
+    }));
+  }
+
+  void _connect() {
+    Navigator.of(context)
+        .push(MaterialPageRoute<void>(builder: (BuildContext context) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text('Connect!'),
+        ),
+      );
+    }));
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: [
+          IconButton(icon: Icon(Icons.schedule), onPressed: _plan),
+          IconButton(icon: Icon(Icons.terrain), onPressed: _play),
+          IconButton(icon: Icon(Icons.mms), onPressed: _connect),
+        ],
       ),
       body: Center(),
     );
